@@ -1,12 +1,9 @@
-# feature/display.py
-
 import time
 import logging
-import spidev as SPI
 from PIL import Image, ImageDraw, ImageFont
 from lib import LCD_1inch5
 
-def display(queue):
+def display_process(queue):
     logging.basicConfig(level=logging.DEBUG)
     try:
         # ディスプレイの初期化
