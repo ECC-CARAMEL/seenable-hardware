@@ -2,6 +2,7 @@ import base64
 import requests
 import time
 import cv2
+import os
 
 def send_to_server(face_image, train_img_directory):
     try:
@@ -14,7 +15,7 @@ def send_to_server(face_image, train_img_directory):
         response.raise_for_status()  # HTTPエラーチェック
         print(response.status_code)
         response_data = response.json()
-        name = response_data.get("name", "Unknown")
+        name = response_data.get("name")
 
         # 画像をローカルに保存する
         save_path = os.path.join(train_img_directory, f"{name}.jpg")
